@@ -1,10 +1,12 @@
 #!/usr/bin/env python
 
-import numpy as np
+#import numpy as np
 import cv2
 import cv2.cv as cv
 from video import create_capture
 from common import clock, draw_str
+import sys
+import getopt
 
 help_message = '''
 USAGE: facedetect.py [--cascade <cascade_fn>] [--nested-cascade <cascade_fn>] [<video_source>]
@@ -22,7 +24,6 @@ def draw_rects(img, rects, color):
         cv2.rectangle(img, (x1, y1), (x2, y2), color, 2)
 
 if __name__ == '__main__':
-    import sys, getopt
     print help_message
 
     args, video_src = getopt.getopt(sys.argv[1:], '', ['cascade=', 'nested-cascade='])
